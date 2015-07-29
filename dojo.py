@@ -1,14 +1,15 @@
 class CaixaEletronico():
 
+
     def obter_menor_numero_de_notas(self, valor):
+        if valor == 0 or valor % 10 != 0:
+            raise ValorInvalidoExcecao
         saldo = valor
         resultado = []
         while saldo > 0:
             nota_atual = self._maior_nota_que_cabe_no(saldo)
             saldo -= nota_atual
             resultado.append(nota_atual)
-
-
         return resultado
 
 
@@ -19,10 +20,8 @@ class CaixaEletronico():
             return 50
         elif saldo >= 20:
             return 20
-        elif saldo >=10:
-            return 10
         else:
-            raise DojoExcecao
+            return 10
 
-class DojoExcecao(Exception):
+class ValorInvalidoExcecao(Exception):
     pass

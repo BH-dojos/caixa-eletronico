@@ -1,5 +1,5 @@
 import unittest
-from dojo import CaixaEletronico, DojoExcecao
+from dojo import CaixaEletronico, ValorInvalidoExcecao
 
 class TestDojo(unittest.TestCase):
 
@@ -35,13 +35,16 @@ class TestDojo(unittest.TestCase):
         self.assertEqual(self.caixa.obter_menor_numero_de_notas(130), [100, 20, 10])
 
     def test_notas_para_9_levanta_excecao_nao_permite_sacar(self):
-        self.assertRaises(DojoExcecao, self.caixa.obter_menor_numero_de_notas, 9)
+        self.assertRaises(ValorInvalidoExcecao, self.caixa.obter_menor_numero_de_notas, 9)
 
     def test_notas_para_180_sao_uma_100_uma_50_uma_20_e_uma_10(self):
         self.assertEqual(self.caixa.obter_menor_numero_de_notas(180), [100,50, 20, 10])
 
     def test_notas_para_101_levanta_excecao_nao_permite_sacar(self):
-        self.assertRaises(DojoExcecao, self.caixa.obter_menor_numero_de_notas, 101)
+        self.assertRaises(ValorInvalidoExcecao, self.caixa.obter_menor_numero_de_notas, 101)
+
+    def test_notas_para_0_levanta_excecao_nao_permite_sacar(self):
+        self.assertRaises(ValorInvalidoExcecao, self.caixa.obter_menor_numero_de_notas, 0)
 
 
 if __name__ == 'main':
