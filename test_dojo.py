@@ -39,6 +39,9 @@ class TestDojo(unittest.TestCase):
     def test_notas_para_180_sao_uma_100_uma_50_uma_20_e_uma_10(self):
         self.assertEqual(dojo.obter_menor_numero_de_notas(180), [100,50, 20, 10])
 
+    def test_notas_para_101_levanta_excecao_nao_permite_sacar(self):
+        self.assertRaises(dojo.DojoExcecao, dojo.obter_menor_numero_de_notas, 101)
+
 
 if __name__ == 'main':
     unittest.main()
