@@ -2,7 +2,7 @@ class CaixaEletronico():
 
 
     def obter_menor_numero_de_notas(self, valor):
-        if valor == 0 or valor % 10 != 0:
+        if not valor or valor % 10 != 0:
             raise ValorInvalidoExcecao
         saldo = valor
         resultado = []

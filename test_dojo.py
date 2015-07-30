@@ -46,6 +46,8 @@ class TestDojo(unittest.TestCase):
     def test_notas_para_0_levanta_excecao_nao_permite_sacar(self):
         self.assertRaises(ValorInvalidoExcecao, self.caixa.obter_menor_numero_de_notas, 0)
 
+    def test_notas_valor_menos_um_eh_invalido(self):
+        self.assertRaises(ValorInvalidoExcecao, self.caixa.obter_menor_numero_de_notas, -1)
 
 if __name__ == 'main':
     unittest.main()
