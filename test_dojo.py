@@ -40,7 +40,7 @@ class TestDojo(unittest.TestCase):
     def test_notas_para_180_sao_uma_100_uma_50_uma_20_e_uma_10(self):
         self.assertEqual(self.caixa.obter_menor_numero_de_notas(180), [100,50, 20, 10])
 
-    def test_notas_para_101_levanta_excecao_nao_permite_sacar(self):
+    def test_valores_para_nao_multiplos_de_10_sao_invalidos(self):
         self.assertRaises(ValorInvalidoExcecao, self.caixa.obter_menor_numero_de_notas, 101)
 
     def test_notas_para_0_levanta_excecao_nao_permite_sacar(self):
@@ -49,5 +49,7 @@ class TestDojo(unittest.TestCase):
     def test_notas_valor_menos_um_eh_invalido(self):
         self.assertRaises(ValorInvalidoExcecao, self.caixa.obter_menor_numero_de_notas, -1)
 
+    def test_notas_para_valor_negativo_eh_invalido(self):
+        self.assertRaises(ValorInvalidoExcecao, self.caixa.obter_menor_numero_de_notas, -10)
 if __name__ == 'main':
     unittest.main()
